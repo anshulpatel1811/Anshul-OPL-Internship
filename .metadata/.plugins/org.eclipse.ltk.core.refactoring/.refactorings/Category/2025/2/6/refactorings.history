@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;ResourceNotFoundException.java&apos; to &apos;StudentManagementSystem/src/main/java/com.sms.student.exception&apos;&#x0D;&#x0A;- Original project: &apos;Category&apos;&#x0D;&#x0A;- Destination element: &apos;StudentManagementSystem/src/main/java/com.sms.student.exception&apos;&#x0D;&#x0A;- Original element: &apos;com.category.exceptions.ResourceNotFoundException.java&apos;" description="Copy compilation unit" destination="=StudentManagementSystem/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.sms.student.exception" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.category.exceptions{ResourceNotFoundException.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1738912670875" units="1" version="1.0"/>
+</session>

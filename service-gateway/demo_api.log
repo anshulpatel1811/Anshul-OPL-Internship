@@ -1,0 +1,196 @@
+2025-03-12T09:40:22.780+05:30  INFO 403904 --- [service-gateway] [restartedMain] c.b.b.s.ServiceGatewayApplication        : Starting ServiceGatewayApplication using Java 21.0.5 with PID 403904 (C:\Users\AnshulPatel\OneDrive - Online PSB Loans\Desktop\spring-boot\service-gateway\target\classes started by AnshulPatel in C:\Users\AnshulPatel\OneDrive - Online PSB Loans\Desktop\spring-boot\service-gateway)
+2025-03-12T09:40:22.789+05:30  INFO 403904 --- [service-gateway] [restartedMain] c.b.b.s.ServiceGatewayApplication        : No active profile set, falling back to 1 default profile: "default"
+2025-03-12T09:40:22.853+05:30  INFO 403904 --- [service-gateway] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-12T09:40:22.853+05:30  INFO 403904 --- [service-gateway] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-12T09:40:22.939+05:30  WARN 403904 --- [service-gateway] [restartedMain] onfigReactiveWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.blood.bank.service_gateway.ServiceGatewayApplication]
+2025-03-12T09:40:23.170+05:30 ERROR 403904 --- [service-gateway] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.blood.bank.service_gateway.ServiceGatewayApplication]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:185) ~[spring-context-6.2.3.jar:6.2.3]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:418) ~[spring-context-6.2.3.jar:6.2.3]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:290) ~[spring-context-6.2.3.jar:6.2.3]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349) ~[spring-context-6.2.3.jar:6.2.3]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118) ~[spring-context-6.2.3.jar:6.2.3]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:791) ~[spring-context-6.2.3.jar:6.2.3]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:609) ~[spring-context-6.2.3.jar:6.2.3]
+	at org.springframework.boot.web.reactive.context.ReactiveWebServerApplicationContext.refresh(ReactiveWebServerApplicationContext.java:66) ~[spring-boot-3.4.3.jar:3.4.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.4.3.jar:3.4.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.3.jar:3.4.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.3.jar:3.4.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.4.3.jar:3.4.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.4.3.jar:3.4.3]
+	at com.blood.bank.service_gateway.ServiceGatewayApplication.main(ServiceGatewayApplication.java:16) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.4.3.jar:3.4.3]
+Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'jwtGatewayFilter' for bean class [com.blood.bank.service_gateway.filters.JwtGatewayFilter] conflicts with existing, non-compatible bean definition of same name and class [com.blood.bank.service_gateway.custom.jwt.JwtGatewayFilter]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:361) ~[spring-context-6.2.3.jar:6.2.3]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:288) ~[spring-context-6.2.3.jar:6.2.3]
+	at org.springframework.context.annotation.ComponentScanAnnotationParser.parse(ComponentScanAnnotationParser.java:128) ~[spring-context-6.2.3.jar:6.2.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:332) ~[spring-context-6.2.3.jar:6.2.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:267) ~[spring-context-6.2.3.jar:6.2.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:193) ~[spring-context-6.2.3.jar:6.2.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:171) ~[spring-context-6.2.3.jar:6.2.3]
+	... 16 common frames omitted
+
+2025-03-12T09:45:36.646+05:30  INFO 405364 --- [service-gateway] [restartedMain] c.b.b.s.ServiceGatewayApplication        : Starting ServiceGatewayApplication using Java 21.0.5 with PID 405364 (C:\Users\AnshulPatel\OneDrive - Online PSB Loans\Desktop\spring-boot\service-gateway\target\classes started by AnshulPatel in C:\Users\AnshulPatel\OneDrive - Online PSB Loans\Desktop\spring-boot\service-gateway)
+2025-03-12T09:45:36.648+05:30  INFO 405364 --- [service-gateway] [restartedMain] c.b.b.s.ServiceGatewayApplication        : No active profile set, falling back to 1 default profile: "default"
+2025-03-12T09:45:36.701+05:30  INFO 405364 --- [service-gateway] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-12T09:45:36.702+05:30  INFO 405364 --- [service-gateway] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-12T09:45:37.860+05:30  INFO 405364 --- [service-gateway] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=41e06eea-792a-3f6a-9af1-5575d0f38888
+2025-03-12T09:45:38.767+05:30  INFO 405364 --- [service-gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [After]
+2025-03-12T09:45:38.768+05:30  INFO 405364 --- [service-gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Before]
+2025-03-12T09:45:38.768+05:30  INFO 405364 --- [service-gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Between]
+2025-03-12T09:45:38.768+05:30  INFO 405364 --- [service-gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Cookie]
+2025-03-12T09:45:38.768+05:30  INFO 405364 --- [service-gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Header]
+2025-03-12T09:45:38.768+05:30  INFO 405364 --- [service-gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Host]
+2025-03-12T09:45:38.768+05:30  INFO 405364 --- [service-gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Method]
+2025-03-12T09:45:38.769+05:30  INFO 405364 --- [service-gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Path]
+2025-03-12T09:45:38.769+05:30  INFO 405364 --- [service-gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Query]
+2025-03-12T09:45:38.769+05:30  INFO 405364 --- [service-gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [ReadBody]
+2025-03-12T09:45:38.769+05:30  INFO 405364 --- [service-gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [RemoteAddr]
+2025-03-12T09:45:38.769+05:30  INFO 405364 --- [service-gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2025-03-12T09:45:38.769+05:30  INFO 405364 --- [service-gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Weight]
+2025-03-12T09:45:38.769+05:30  INFO 405364 --- [service-gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2025-03-12T09:45:39.068+05:30  INFO 405364 --- [service-gateway] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 18 endpoints beneath base path '/actuator'
+2025-03-12T09:45:39.353+05:30  INFO 405364 --- [service-gateway] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-03-12T09:45:39.369+05:30  INFO 405364 --- [service-gateway] [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-03-12T09:45:39.409+05:30  WARN 405364 --- [service-gateway] [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-03-12T09:45:39.522+05:30  INFO 405364 --- [service-gateway] [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2025-03-12T09:45:39.552+05:30  INFO 405364 --- [service-gateway] [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2025-03-12T09:45:39.558+05:30  INFO 405364 --- [service-gateway] [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-03-12T09:45:39.587+05:30  INFO 405364 --- [service-gateway] [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-03-12T09:45:39.588+05:30  INFO 405364 --- [service-gateway] [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-03-12T09:45:39.588+05:30  INFO 405364 --- [service-gateway] [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-03-12T09:45:39.588+05:30  INFO 405364 --- [service-gateway] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-03-12T09:45:39.589+05:30  INFO 405364 --- [service-gateway] [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-03-12T09:45:39.589+05:30  INFO 405364 --- [service-gateway] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2025-03-12T09:45:39.589+05:30  INFO 405364 --- [service-gateway] [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-03-12T09:45:40.327+05:30  INFO 405364 --- [service-gateway] [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-03-12T09:45:40.329+05:30  INFO 405364 --- [service-gateway] [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2025-03-12T09:45:40.331+05:30  INFO 405364 --- [service-gateway] [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-03-12T09:45:40.334+05:30  INFO 405364 --- [service-gateway] [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1741752940332 with initial instances count: 0
+2025-03-12T09:45:40.337+05:30  INFO 405364 --- [service-gateway] [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application SERVICE-GATEWAY with eureka with status UP
+2025-03-12T09:45:40.338+05:30  INFO 405364 --- [service-gateway] [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1741752940337, current=UP, previous=STARTING]
+2025-03-12T09:45:40.339+05:30  INFO 405364 --- [service-gateway] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SERVICE-GATEWAY/192.168.1.126:service-gateway:1001: registering service...
+2025-03-12T09:45:40.529+05:30  INFO 405364 --- [service-gateway] [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 1001 (http)
+2025-03-12T09:45:40.531+05:30  INFO 405364 --- [service-gateway] [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 1001
+2025-03-12T09:45:40.541+05:30  INFO 405364 --- [service-gateway] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SERVICE-GATEWAY/192.168.1.126:service-gateway:1001 - registration status: 204
+2025-03-12T09:45:40.557+05:30  INFO 405364 --- [service-gateway] [restartedMain] c.b.b.s.ServiceGatewayApplication        : Started ServiceGatewayApplication in 4.353 seconds (process running for 5.262)
+2025-03-12T09:45:40.759+05:30  WARN 405364 --- [service-gateway] [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Failed to register application as Application(name=service-gateway, managementUrl=http://192.168.1.126:1001/actuator, healthUrl=http://192.168.1.126:1001/actuator/health, serviceUrl=http://192.168.1.126:1001/) at spring-boot-admin ([http://localhost:9011/instances]): Connection refused: getsockopt: localhost/127.0.0.1:9011. Further attempts are logged on DEBUG level
+2025-03-12T09:46:10.365+05:30  INFO 405364 --- [service-gateway] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-03-12T09:46:10.366+05:30  INFO 405364 --- [service-gateway] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-03-12T09:46:10.367+05:30  INFO 405364 --- [service-gateway] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-03-12T09:46:10.367+05:30  INFO 405364 --- [service-gateway] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-03-12T09:46:10.367+05:30  INFO 405364 --- [service-gateway] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-03-12T09:46:10.367+05:30  INFO 405364 --- [service-gateway] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+2025-03-12T09:46:10.367+05:30  INFO 405364 --- [service-gateway] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-03-12T09:46:10.570+05:30  INFO 405364 --- [service-gateway] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-03-12T09:49:11.075+05:30  INFO 405364 --- [service-gateway] [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Application registered itself as 41885528ed09
+2025-03-12T09:50:39.604+05:30  INFO 405364 --- [service-gateway] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-03-12T09:55:39.618+05:30  INFO 405364 --- [service-gateway] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-03-12T10:00:39.628+05:30  INFO 405364 --- [service-gateway] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-03-12T10:05:39.651+05:30  INFO 405364 --- [service-gateway] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-03-12T10:10:39.667+05:30  INFO 405364 --- [service-gateway] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-03-12T10:15:39.672+05:30  INFO 405364 --- [service-gateway] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-03-12T10:20:39.680+05:30  INFO 405364 --- [service-gateway] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-03-12T10:22:16.459+05:30 ERROR 405364 --- [service-gateway] [reactor-http-nio-1] a.w.r.e.AbstractErrorWebExceptionHandler : [7b3c2221-131]  500 Server Error for HTTP POST "/auth/save-user"
+
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: getsockopt: /192.168.1.126:9099
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ org.springframework.cloud.gateway.filter.WeightCalculatorWebFilter [DefaultWebFilterChain]
+	*__checkpoint ⇢ HTTP POST "/auth/save-user" [ExceptionHandlingWebHandler]
+Original Stack Trace:
+Caused by: java.net.ConnectException: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:973) ~[na:na]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[netty-transport-4.1.118.Final.jar:4.1.118.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[netty-transport-4.1.118.Final.jar:4.1.118.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[netty-transport-4.1.118.Final.jar:4.1.118.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.118.Final.jar:4.1.118.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.118.Final.jar:4.1.118.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.118.Final.jar:4.1.118.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.118.Final.jar:4.1.118.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.118.Final.jar:4.1.118.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.118.Final.jar:4.1.118.Final]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2025-03-12T10:25:39.701+05:30  INFO 405364 --- [service-gateway] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-03-12T10:30:39.705+05:30  INFO 405364 --- [service-gateway] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-03-12T10:31:40.587+05:30  WARN 405364 --- [service-gateway] [reactor-http-nio-2] r.netty.http.client.HttpClientConnect    : [5b5e8d18-56, L:/127.0.0.1:56208 ! R:localhost/127.0.0.1:9011] The connection observed an error
+
+reactor.netty.http.client.PrematureCloseException: Connection prematurely closed BEFORE response
+
+2025-03-12T10:31:40.590+05:30  WARN 405364 --- [service-gateway] [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Failed to register application as Application(name=service-gateway, managementUrl=http://192.168.1.126:1001/actuator, healthUrl=http://192.168.1.126:1001/actuator/health, serviceUrl=http://192.168.1.126:1001/) at spring-boot-admin ([http://localhost:9011/instances]): Connection prematurely closed BEFORE response. Further attempts are logged on DEBUG level
+2025-03-12T10:32:35.496+05:30  INFO 405364 --- [service-gateway] [RMI TCP Connection(59)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-03-12T10:32:35.505+05:30  INFO 405364 --- [service-gateway] [RMI TCP Connection(59)-127.0.0.1] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SERVICE-GATEWAY with eureka with status DOWN
+2025-03-12T10:32:35.506+05:30  INFO 405364 --- [service-gateway] [RMI TCP Connection(59)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1741755755506, current=DOWN, previous=UP]
+2025-03-12T10:32:35.506+05:30  INFO 405364 --- [service-gateway] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SERVICE-GATEWAY/192.168.1.126:service-gateway:1001: registering service...
+2025-03-12T10:32:35.526+05:30  INFO 405364 --- [service-gateway] [RMI TCP Connection(59)-127.0.0.1] o.s.b.w.embedded.netty.GracefulShutdown  : Commencing graceful shutdown. Waiting for active requests to complete
+2025-03-12T10:32:35.552+05:30  INFO 405364 --- [service-gateway] [netty-shutdown] o.s.b.w.embedded.netty.GracefulShutdown  : Graceful shutdown complete
+2025-03-12T10:32:35.633+05:30  INFO 405364 --- [service-gateway] [RMI TCP Connection(59)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2025-03-12T10:32:35.645+05:30  INFO 405364 --- [service-gateway] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SERVICE-GATEWAY/192.168.1.126:service-gateway:1001 - registration status: 204
+2025-03-12T10:32:35.647+05:30  INFO 405364 --- [service-gateway] [RMI TCP Connection(59)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2025-03-12T10:32:35.730+05:30  INFO 405364 --- [service-gateway] [RMI TCP Connection(59)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SERVICE-GATEWAY/192.168.1.126:service-gateway:1001 - deregister  status: 200
+2025-03-12T10:32:35.730+05:30  INFO 405364 --- [service-gateway] [RMI TCP Connection(59)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2025-03-12T10:35:34.096+05:30  INFO 408620 --- [service-gateway] [restartedMain] c.b.b.s.ServiceGatewayApplication        : Starting ServiceGatewayApplication using Java 21.0.5 with PID 408620 (C:\Users\AnshulPatel\OneDrive - Online PSB Loans\Desktop\spring-boot\service-gateway\target\classes started by AnshulPatel in C:\Users\AnshulPatel\OneDrive - Online PSB Loans\Desktop\spring-boot\service-gateway)
+2025-03-12T10:35:34.099+05:30  INFO 408620 --- [service-gateway] [restartedMain] c.b.b.s.ServiceGatewayApplication        : No active profile set, falling back to 1 default profile: "default"
+2025-03-12T10:35:34.145+05:30  INFO 408620 --- [service-gateway] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-12T10:35:34.145+05:30  INFO 408620 --- [service-gateway] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-12T10:35:35.399+05:30  INFO 408620 --- [service-gateway] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=41e06eea-792a-3f6a-9af1-5575d0f38888
+2025-03-12T10:35:36.305+05:30  INFO 408620 --- [service-gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [After]
+2025-03-12T10:35:36.306+05:30  INFO 408620 --- [service-gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Before]
+2025-03-12T10:35:36.306+05:30  INFO 408620 --- [service-gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Between]
+2025-03-12T10:35:36.306+05:30  INFO 408620 --- [service-gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Cookie]
+2025-03-12T10:35:36.306+05:30  INFO 408620 --- [service-gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Header]
+2025-03-12T10:35:36.306+05:30  INFO 408620 --- [service-gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Host]
+2025-03-12T10:35:36.306+05:30  INFO 408620 --- [service-gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Method]
+2025-03-12T10:35:36.306+05:30  INFO 408620 --- [service-gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Path]
+2025-03-12T10:35:36.307+05:30  INFO 408620 --- [service-gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Query]
+2025-03-12T10:35:36.307+05:30  INFO 408620 --- [service-gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [ReadBody]
+2025-03-12T10:35:36.307+05:30  INFO 408620 --- [service-gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [RemoteAddr]
+2025-03-12T10:35:36.307+05:30  INFO 408620 --- [service-gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2025-03-12T10:35:36.307+05:30  INFO 408620 --- [service-gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Weight]
+2025-03-12T10:35:36.307+05:30  INFO 408620 --- [service-gateway] [restartedMain] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2025-03-12T10:35:36.645+05:30  INFO 408620 --- [service-gateway] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 18 endpoints beneath base path '/actuator'
+2025-03-12T10:35:36.929+05:30  INFO 408620 --- [service-gateway] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-03-12T10:35:36.942+05:30  INFO 408620 --- [service-gateway] [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-03-12T10:35:36.969+05:30  WARN 408620 --- [service-gateway] [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-03-12T10:35:37.052+05:30  INFO 408620 --- [service-gateway] [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2025-03-12T10:35:37.074+05:30  INFO 408620 --- [service-gateway] [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2025-03-12T10:35:37.078+05:30  INFO 408620 --- [service-gateway] [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-03-12T10:35:37.086+05:30  INFO 408620 --- [service-gateway] [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-03-12T10:35:37.087+05:30  INFO 408620 --- [service-gateway] [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-03-12T10:35:37.087+05:30  INFO 408620 --- [service-gateway] [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-03-12T10:35:37.087+05:30  INFO 408620 --- [service-gateway] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-03-12T10:35:37.087+05:30  INFO 408620 --- [service-gateway] [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-03-12T10:35:37.087+05:30  INFO 408620 --- [service-gateway] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2025-03-12T10:35:37.087+05:30  INFO 408620 --- [service-gateway] [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-03-12T10:35:37.529+05:30  INFO 408620 --- [service-gateway] [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-03-12T10:35:37.531+05:30  INFO 408620 --- [service-gateway] [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2025-03-12T10:35:37.533+05:30  INFO 408620 --- [service-gateway] [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-03-12T10:35:37.536+05:30  INFO 408620 --- [service-gateway] [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1741755937535 with initial instances count: 1
+2025-03-12T10:35:37.539+05:30  INFO 408620 --- [service-gateway] [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application SERVICE-GATEWAY with eureka with status UP
+2025-03-12T10:35:37.540+05:30  INFO 408620 --- [service-gateway] [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1741755937540, current=UP, previous=STARTING]
+2025-03-12T10:35:37.542+05:30  INFO 408620 --- [service-gateway] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SERVICE-GATEWAY/192.168.1.126:service-gateway:1001: registering service...
+2025-03-12T10:35:37.679+05:30  INFO 408620 --- [service-gateway] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SERVICE-GATEWAY/192.168.1.126:service-gateway:1001 - registration status: 204
+2025-03-12T10:35:37.738+05:30  INFO 408620 --- [service-gateway] [restartedMain] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 1001 (http)
+2025-03-12T10:35:37.740+05:30  INFO 408620 --- [service-gateway] [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 1001
+2025-03-12T10:35:37.767+05:30  INFO 408620 --- [service-gateway] [restartedMain] c.b.b.s.ServiceGatewayApplication        : Started ServiceGatewayApplication in 4.125 seconds (process running for 5.045)
+2025-03-12T10:35:37.971+05:30  WARN 408620 --- [service-gateway] [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Failed to register application as Application(name=service-gateway, managementUrl=http://192.168.1.126:1001/actuator, healthUrl=http://192.168.1.126:1001/actuator/health, serviceUrl=http://192.168.1.126:1001/) at spring-boot-admin ([http://localhost:9011/instances]): Connection refused: getsockopt: localhost/127.0.0.1:9011. Further attempts are logged on DEBUG level
+2025-03-12T10:36:57.964+05:30  INFO 408620 --- [service-gateway] [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Application registered itself as 41885528ed09
+2025-03-12T10:40:37.093+05:30  INFO 408620 --- [service-gateway] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-03-12T10:41:07.790+05:30  WARN 408620 --- [service-gateway] [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Failed to register application as Application(name=service-gateway, managementUrl=http://192.168.1.126:1001/actuator, healthUrl=http://192.168.1.126:1001/actuator/health, serviceUrl=http://192.168.1.126:1001/) at spring-boot-admin ([http://localhost:9011/instances]): Connection refused: getsockopt: localhost/127.0.0.1:9011. Further attempts are logged on DEBUG level
+2025-03-12T10:41:17.681+05:30  INFO 408620 --- [service-gateway] [RMI TCP Connection(17)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-03-12T10:41:17.682+05:30  INFO 408620 --- [service-gateway] [RMI TCP Connection(17)-127.0.0.1] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SERVICE-GATEWAY with eureka with status DOWN
+2025-03-12T10:41:17.682+05:30  INFO 408620 --- [service-gateway] [RMI TCP Connection(17)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1741756277682, current=DOWN, previous=UP]
+2025-03-12T10:41:17.682+05:30  INFO 408620 --- [service-gateway] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SERVICE-GATEWAY/192.168.1.126:service-gateway:1001: registering service...
+2025-03-12T10:41:17.686+05:30  INFO 408620 --- [service-gateway] [RMI TCP Connection(17)-127.0.0.1] o.s.b.w.embedded.netty.GracefulShutdown  : Commencing graceful shutdown. Waiting for active requests to complete
+2025-03-12T10:41:17.691+05:30  INFO 408620 --- [service-gateway] [netty-shutdown] o.s.b.w.embedded.netty.GracefulShutdown  : Graceful shutdown complete
+2025-03-12T10:41:17.707+05:30  INFO 408620 --- [service-gateway] [RMI TCP Connection(17)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2025-03-12T10:41:17.766+05:30  INFO 408620 --- [service-gateway] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SERVICE-GATEWAY/192.168.1.126:service-gateway:1001 - registration status: 204
+2025-03-12T10:41:17.767+05:30  INFO 408620 --- [service-gateway] [RMI TCP Connection(17)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2025-03-12T10:41:17.845+05:30  INFO 408620 --- [service-gateway] [RMI TCP Connection(17)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SERVICE-GATEWAY/192.168.1.126:service-gateway:1001 - deregister  status: 200
+2025-03-12T10:41:17.845+05:30  INFO 408620 --- [service-gateway] [RMI TCP Connection(17)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient

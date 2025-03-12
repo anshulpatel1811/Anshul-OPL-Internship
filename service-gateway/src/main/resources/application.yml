@@ -1,0 +1,59 @@
+server:
+  port: 1001
+
+spring:
+  cloud:
+    discovery:
+      enabled: true
+      eureka:
+        client:
+           service-url:
+              defaultZone: http://ADMIN:ADMIN@localhost:8761/eureka
+    
+    gateway:
+      routes:
+      - id : service-blood-bank
+        uri : lb://SERVICE-BLOOD-BANK
+        predicates:
+          - Path=/blood-bank/**
+        filters:
+          - StripPrefix=0
+          - JwtGatewayFilter
+
+      - id : service-admin
+        uri : lb://SERVICE-ADMIN
+        predicates:
+          - Path=/admin/**
+        filters:
+          - StripPrefix=0
+          - JwtGatewayFilter
+
+      - id : service-donor
+        uri : lb://SERVICE-DONOR
+        predicates:
+          - Path=/Donor/**
+        filters:
+          - StripPrefix=0
+          - JwtGatewayFilter
+
+      - id : service-user
+        uri : lb://SERVICE-USER
+        predicates:
+          - Path=/User/**
+        filters:
+          - StripPrefix=0
+          - JwtGatewayFilter
+
+      - id : service-auth
+        uri : lb://SERVICE-AUTH
+        predicates:
+          - Path=/auth/**
+        filters:
+          - StripPrefix=0
+#          - JwtGatewayFilter
+
+  application:
+    name: service-gateway
+
+  main:
+    allow-circular-references: true

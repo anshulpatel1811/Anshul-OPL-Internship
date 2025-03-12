@@ -1,0 +1,5 @@
+package com.security.learn.proxy;
+
+public class JwtRequest {
+
+}

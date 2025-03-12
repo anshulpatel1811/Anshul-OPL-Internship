@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;SecurityConfiguration.java&apos; to &apos;service-registry/src/main/java/com.blood.bank.service_registry.config&apos;&#x0D;&#x0A;- Original project: &apos;EmployeeSecurity&apos;&#x0D;&#x0A;- Destination element: &apos;service-registry/src/main/java/com.blood.bank.service_registry.config&apos;&#x0D;&#x0A;- Original element: &apos;com.emp.security.config.SecurityConfiguration.java&apos;" description="Copy compilation unit" destination="=service-registry/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.blood.bank.service_registry.config" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.emp.security.config{SecurityConfiguration.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1741415153803" units="1" version="1.0"/>
+</session>

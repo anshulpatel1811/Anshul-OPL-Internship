@@ -1,0 +1,66 @@
+package com.emp.security.controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.emp.security.proxy.EmployeeProxy;
+import com.emp.security.services.EmpService;
+
+@RestController
+public class EmpController {
+
+	@Autowired
+	private EmpService empService;
+	
+	// save-Data
+	@PostMapping("/saveEmployee")
+	public ResponseEntity<EmployeeProxy> saveData(@RequestBody EmployeeProxy employeeProxy){
+		EmployeeProxy saveData = empService.saveData(employeeProxy);
+		return new ResponseEntity<EmployeeProxy>(saveData, HttpStatus.CREATED);
+	}
+	
+	// get Employee By Id
+	@GetMapping("/getById/{id}")
+	public ResponseEntity<EmployeeProxy> getDataById(@PathVariable Long id){
+		EmployeeProxy employeeProxy = empService.getById(id);
+		return new ResponseEntity<EmployeeProxy>(employeeProxy, HttpStatus.OK);
+	}
+	
+	// get All Employee
+	@GetMapping("/getAllEmployee")
+	public ResponseEntity<List<EmployeeProxy>> getAllData(){
+		List<EmployeeProxy> list = empService.getAll();
+		return new ResponseEntity<>(list, HttpStatus.OK);
+	}
+	
+	// update Employee
+	@PutMapping("/updateEmployee/{id}")
+	public ResponseEntity<EmployeeProxy> getEmployeeData(@PathVariable String id,@RequestBody EmployeeProxy employeeProxy){
+		EmployeeProxy updatedEmployee = empService.updatedEmployee(id, employeeProxy);
+		return new ResponseEntity<>(updatedEmployee, HttpStatus.OK);
+	}
+	
+	// delete Employee by Id
+	@DeleteMapping("/deleteEmployee/{id}")
+	public ResponseEntity<?> deleteEmployeeById(@PathVariable String id){
+		empService.deleteEmpById(id);
+		return new ResponseEntity<>("Employee Is Deleted Successfully !!", HttpStatus.OK);
+	}
+	
+	// delete All Employee
+	@DeleteMapping("/deleteAllEmployee")
+	public ResponseEntity<?> deleteAllEmployee(){
+		empService.deleteAllEmp();
+		return new ResponseEntity<>("All Employee Is Deleted Successfully !!", HttpStatus.OK);
+	}
+}

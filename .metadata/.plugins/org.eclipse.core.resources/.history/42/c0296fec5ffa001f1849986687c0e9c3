@@ -1,0 +1,65 @@
+package com.security.learn.configs;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import com.security.learn.security.JWTAuthenticationFilter;
+import com.security.learn.security.JwtAuthenticationEnteryPoint;
+
+@Configuration
+@EnableWebSecurity
+//@EnableMethodSecurity
+public class SecurityConfig {
+
+	@Autowired
+	private JWTAuthenticationFilter filter;
+	
+	@Autowired
+	private JwtAuthenticationEnteryPoint enteryPoint;
+	
+    @Bean
+    SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
+
+    	httpSecurity.cors(h->h.disable());
+        httpSecurity.csrf(c -> c.disable());
+        httpSecurity.authorizeHttpRequests(request -> {
+            //request.requestMatchers("/login-form", "/welcome").permitAll();
+            request.requestMatchers(HttpMethod.POST, "api/students/save").permitAll();
+            request.requestMatchers("api/students/update/**").hasRole("TEACHER");
+            request.requestMatchers("api/students/getAll").hasRole("STUDENT");
+            request.requestMatchers(HttpMethod.POST,"/auth/genrate-token").permitAll();
+            request.anyRequest().authenticated();
+        });
+//        httpSecurity.formLogin(withDefaults());
+//        httpSecurity.httpBasic(withDefaults());
+        
+        httpSecurity.exceptionHandling(ex->ex.authenticationEntryPoint(enteryPoint));
+        httpSecurity.sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+        httpSecurity.addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
+        return httpSecurity.build();
+    }
+	
+//	@Bean
+//	public UserDetailsService userDetailsService() {
+//		
+//		UserDetails user1 = User.builder().username("Anshul").password(passwordEncoder().encode("dhruv")).build();
+//		UserDetails user2 = User.builder().username("Jay").password(passwordEncoder().encode("dhruv")).build();
+//		
+//		InMemoryUserDetailsManager inMemoryUserDetailsManager = new InMemoryUserDetailsManager(user1,user2);
+//		return inMemoryUserDetailsManager;
+//	}
+	
+	@Bean
+	public BCryptPasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
+	
+}

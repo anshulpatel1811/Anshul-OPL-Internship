@@ -1,0 +1,12 @@
+package com.security.learn.domain;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
+public class Role {
+
+	@Id
+	String roleId;
+	String name;
+}

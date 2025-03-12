@@ -1,0 +1,72 @@
+package com.blood.bank.service_auth.config;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import com.blood.bank.service_auth.filter.JwtAuthenticationFilter;
+import com.blood.bank.service_auth.repo.UserRepo;
+import com.blood.bank.service_auth.services.CustomUserDetailsService;
+import com.blood.bank.service_auth.util.JwtUtil;
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
+
+	private final JwtUtil jwtUtil;
+
+	private final UserRepo userRepo;
+
+	@Autowired
+	private CustomUserDetailsService service;
+
+	// Inject JwtUtil to be used in JwtAuthenticationFilter
+	public SecurityConfig(JwtUtil jwtUtil, UserRepo userRepo, CustomUserDetailsService service) {
+		this.jwtUtil = jwtUtil;
+		this.userRepo = userRepo;
+		this.service = service;
+	}
+
+	@Bean
+	public SecurityFilterChain securityfilterchain(HttpSecurity http) throws Exception {
+		http.csrf(c -> c.disable());
+		http.authorizeHttpRequests(
+				auth -> auth.requestMatchers("/auth/login", "/auth/validate-token", "/auth/save-user", "/auth/roles", "/actuator/**")
+						.permitAll().requestMatchers("/admin/**").hasAnyAuthority("ADMIN") // Only ADMIN can access
+																						// these APIs
+						.requestMatchers("/Donor/**").hasAnyAuthority("DONOR") // Only DONOR can access these APIs
+						.requestMatchers("/User/**").hasAnyAuthority("USER").anyRequest().authenticated());
+		http.addFilterBefore(new JwtAuthenticationFilter(jwtUtil, userRepo, service),
+				UsernamePasswordAuthenticationFilter.class);
+		return http.build();
+	}
+
+	// Bean to encrypt passwords (BCrypt)
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
+
+	@Bean
+	public AuthenticationProvider authenticationProvider() {
+		DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
+		auth.setUserDetailsService(service);
+		auth.setPasswordEncoder(passwordEncoder());
+		return auth;
+	}
+
+	@Bean
+	public AuthenticationManager authenticationManager(AuthenticationConfiguration auth) throws Exception {
+		return auth.getAuthenticationManager();
+	}
+}

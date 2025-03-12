@@ -1,0 +1,5 @@
+package com.security.learn.domain;
+
+public class Role {
+
+}

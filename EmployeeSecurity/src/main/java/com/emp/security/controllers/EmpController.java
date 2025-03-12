@@ -1,0 +1,198 @@
+package com.emp.security.controllers;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.util.StreamUtils;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.emp.security.proxy.EmployeeProxy;
+import com.emp.security.proxy.ImageProxy;
+import com.emp.security.proxy.LoginRequest;
+import com.emp.security.proxy.LoginResponse;
+import com.emp.security.services.EmpService;
+import com.emp.security.services.FileService;
+import com.emp.security.utils.ApiResponseMessage;
+import com.emp.security.utils.ImageResponse;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.Valid;
+
+@RestController
+public class EmpController {
+
+	@Autowired
+	private EmpService empService;
+	
+	@Autowired
+	private FileService fileService;
+	
+	@Value("${emp.profile.image.path}")
+	private String imageUploadPath;
+	
+	// save-Data
+	@PostMapping("/saveEmployee")
+	public ResponseEntity<EmployeeProxy> saveData(@Valid @RequestBody EmployeeProxy employeeProxy){
+		EmployeeProxy saveData = empService.saveData(employeeProxy);
+		return new ResponseEntity<EmployeeProxy>(saveData, HttpStatus.CREATED);
+	}
+	
+	// get Employee By Id
+	@GetMapping("/getById/{id}")
+	public ResponseEntity<EmployeeProxy> getDataById(@PathVariable String id){
+		EmployeeProxy employeeProxy = empService.getById(id);
+		return new ResponseEntity<EmployeeProxy>(employeeProxy, HttpStatus.OK);
+	}
+	
+	// get All Employee
+	@GetMapping("/getAllEmployee")
+	public ResponseEntity<Page<EmployeeProxy>> getAllData(
+			@RequestParam(value = "pageNumber",defaultValue = "0",required = false) int pageNumber,
+			@RequestParam(value = "pageSize",defaultValue = "10",required = false) int pageSize,
+			@RequestParam(value = "sortBy",defaultValue = "empName",required = false) String sortBy,
+			@RequestParam(value = "sortDir",defaultValue = "asc",required = false) String sortDir	
+		){
+		Page<EmployeeProxy> response = empService.getAll(pageNumber,pageSize,sortBy,sortDir);
+		return new ResponseEntity<>(response, HttpStatus.OK);
+	}
+	
+	// update Employee
+	@PutMapping("/updateEmployee/{id}")
+	public ResponseEntity<EmployeeProxy> getEmployeeData(@Valid @PathVariable String id,@RequestBody EmployeeProxy employeeProxy){
+		EmployeeProxy updatedEmployee = empService.updatedEmployee(id, employeeProxy);
+		return new ResponseEntity<>(updatedEmployee, HttpStatus.OK);
+	}
+	
+	// delete Employee by Id
+	@DeleteMapping("/deleteEmployee/{id}")
+	public ResponseEntity<ApiResponseMessage> deleteEmployeeById(@PathVariable String id){
+		empService.deleteEmpById(id);
+		ApiResponseMessage message = ApiResponseMessage.builder().message("Employee is deleted Successfully !!").success(true).status(HttpStatus.OK).build();
+		return new ResponseEntity<>(message, HttpStatus.OK);
+	}
+	
+	// delete All Employee
+	@DeleteMapping("/deleteAllEmployee")
+	public ResponseEntity<?> deleteAllEmployee(){
+		empService.deleteAllEmp();
+		ApiResponseMessage message = ApiResponseMessage.builder().message("All Employee is deleted Successfully !!").success(true).status(HttpStatus.OK).build();
+		return new ResponseEntity<>(message, HttpStatus.OK);
+	}
+	
+	// WelComePage
+	@GetMapping("/home")
+	public ResponseEntity<?> home(){
+		return new ResponseEntity<>("Welcome to home page !!", HttpStatus.OK);
+	}
+	
+	// Login
+	@PostMapping("/login")
+	public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginRequest request){
+		return new ResponseEntity<>(empService.login(request), HttpStatus.ACCEPTED);
+	}
+	
+//	//upload Employee image
+//	@PostMapping("/image/{id}")
+//	public ResponseEntity<ImageResponse> uploadUserImage(@RequestParam("empImage") MultipartFile image,@PathVariable String id) throws IOException{
+//		
+//
+//		String imageName = fileService.uploadFile(image, imageUploadPath);
+//		EmployeeProxy employeeProxy = empService.getById(id);
+//		employeeProxy.setImageName(imageName);
+//		empService.updatedEmployee(id, employeeProxy);
+//			
+//		ImageResponse imageResponse = ImageResponse.builder().imageName(imageName).success(true).status(HttpStatus.CREATED).build();
+//			
+//		return new ResponseEntity<ImageResponse>(imageResponse, HttpStatus.CREATED);
+//	}
+		
+	//serve Employee image
+//	@GetMapping("/image/serve/{id}")
+//	public void serveUserImage(@PathVariable String id,HttpServletResponse response) throws IOException {
+//		EmployeeProxy employeeProxy = empService.getById(id);
+//		InputStream resource = fileService.getResource(imageUploadPath, employeeProxy.getImageName());
+//			
+//		response.setContentType(MediaType.IMAGE_JPEG_VALUE);
+//			
+//		StreamUtils.copy(resource, response.getOutputStream());
+//	}
+	
+//	@PostMapping("/upload")
+//	 public ResponseEntity<EmployeeProxy> uploadEmployeeInfo(
+//	         @RequestParam("file") MultipartFile file,  // The file being uploaded
+//	         @RequestParam("employee") String employeeJson  // The JSON data of the employee
+//	 ) {
+//	     try {
+//	         // Convert the employee JSON string to the EmployeeInfo object
+//	         ObjectMapper objectMapper = new ObjectMapper();
+//	         EmployeeProxy employeeInfo = objectMapper.readValue(employeeJson, EmployeeProxy.class);
+//
+//	          // Save the employee information along with the file
+//	          EmployeeProxy employeeProxy = empService.saveEmployeeInfo(employeeInfo, file,imageUploadPath);
+//
+//	          return ResponseEntity.ok(employeeProxy);
+//	     } catch (Exception e) {
+//	         return ResponseEntity.badRequest().body(null);
+//	     }
+//	 }
+	
+//	//serve Employee image
+//	@GetMapping("/image/serve2/{id}")
+//	public ResponseEntity<?> serveUserImage2(@PathVariable String id) throws IOException {
+//			
+//		byte[] image = empService.getImage(imageUploadPath,id);
+//		return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.valueOf("image/jpeg")).body(image);
+//	}
+	
+	@GetMapping("/register")
+	public String regitseremploye(@RequestPart("employee") EmployeeProxy proxy,
+			@RequestParam("image") MultipartFile image) throws IOException {
+ 
+		if (image == null || image.isEmpty() || image.getContentType() == null) {
+			String errorMessage = "Error: No image uploaded. Please ensure that you select an image file to upload. "
+					+ "Supported formats include JPEG, PNG, and GIF.";
+			return errorMessage;
+		}
+//		EmployeeProxy employee = new EmployeeProxy();
+//		employee.setEmpId(UUID.randomUUID().toString());
+//		employee.setEmpName(username);
+//		employee.setEmpPassword(password); // You might want to hash this before saving
+//		employee.setEmpRole(role);
+		//employee.setGender(gender);
+		//employee.setAddress(address);
+//		employee.setIsActive(isActive);
+		
+//		return null;
+		proxy.setEmpId(UUID.randomUUID().toString());
+		return empService.saveEmployeeInfo(proxy, image);
+	}
+ 
+	@GetMapping("/view/{fid}")
+	public ResponseEntity<?> viewprofileimage(@PathVariable("fid") String fileId) throws FileNotFoundException {
+		ImageProxy emp = empService.getResource(fileId);
+ 
+		// view file--->//
+		return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.valueOf(emp.getContantType()))
+				.body(emp.getFileData());
+ 
+	}
+ 
+}

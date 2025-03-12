@@ -1,0 +1,27 @@
+package com.emp.security.domain;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "emp_tbl")
+public class Employee {
+
+	@Id
+	private Long empId;
+	
+	private String empName;
+	
+	private String empPassword;
+	
+	private String empRole;
+	
+	private Boolean isActive;
+}

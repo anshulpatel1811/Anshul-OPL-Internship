@@ -1,0 +1,5 @@
+package com.emp.security.services.impl;
+
+public class EmpServiceImpl {
+
+}

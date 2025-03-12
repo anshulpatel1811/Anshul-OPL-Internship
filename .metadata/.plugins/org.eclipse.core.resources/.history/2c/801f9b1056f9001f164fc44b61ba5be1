@@ -1,0 +1,106 @@
+package com.blood.bank.service_donor.Service.Impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.blood.bank.service_donor.Domain.Donor;
+import com.blood.bank.service_donor.Proxy.BloodBankProxy;
+import com.blood.bank.service_donor.Proxy.BloodDonationDetailsProxy;
+import com.blood.bank.service_donor.Proxy.BloodGroupAvailbilityStatusProxy;
+import com.blood.bank.service_donor.Proxy.DonorProxy;
+import com.blood.bank.service_donor.Proxy.PatientBloodUtilizationHistoryProxy;
+import com.blood.bank.service_donor.Repo.DonorRepo;
+import com.blood.bank.service_donor.Service.DonorService;
+import com.blood.bank.service_donor.Util.MapperUtil;
+
+@Service
+public class DonorServiceImpl implements DonorService{
+
+	@Autowired
+	private DonorRepo repo;
+	
+	@Autowired
+	private RestTemplate restTemplate;
+	
+	private final String baseUrl = "http://localhost:9091/blood-bank/";
+
+	@Override
+	public BloodGroupAvailbilityStatusProxy serachBloodGroupDetailsOrGetBloodGroupDetails(String bloodGroup) {
+		return restTemplate.getForObject(baseUrl+"/getBGDetails/{b}",BloodGroupAvailbilityStatusProxy.class, bloodGroup);
+	}
+
+	@Override
+	public String orderBloodInUnitOrSaveOrderDetails(PatientBloodUtilizationHistoryProxy bloodGroupid) {
+		return restTemplate.postForObject(baseUrl+"/saveOrderDetails",bloodGroupid,String.class);
+	}
+	
+	@Override
+	public List<BloodDonationDetailsProxy> getDonationHistoryByUsername(String username) {
+		ResponseEntity<List<BloodDonationDetailsProxy>> entity = restTemplate.exchange(
+		        baseUrl + "getAllDonationDetails/{b}", 
+		        HttpMethod.GET, 
+		        null, 
+		        new ParameterizedTypeReference<List<BloodDonationDetailsProxy>>() {},
+		        username
+				);
+		
+		return entity.getBody();
+	}
+
+	@Override
+	public String donateBlood(BloodGroupAvailbilityStatusProxy availbilityStatusProxy) {
+		ResponseEntity<String> entity = restTemplate.postForEntity(baseUrl+"/saveDonatedBloodGroupDetails", availbilityStatusProxy, String.class);
+		return entity.getBody();
+	}
+
+	@Override
+	public List<DonorProxy> getAllDonor() {
+		List<Donor> donor = repo.findAll();
+		// TODO Auto-generated method stub
+		return MapperUtil.convertListOfValue(donor, DonorProxy.class);
+	}
+
+	@Override
+	public String deleteDonorByUsername(String donorname) {
+		repo.deleteByUsername(donorname);
+		return "donor " + donorname+" deleted on record";
+		
+	}
+
+	@Override
+	public DonorProxy getDonorByUsername(String donorname) {
+		Donor donor = repo.findByUsername(donorname).orElseThrow(()->new RuntimeException("donor details not found based on given input"));
+		return MapperUtil.convertValue(donor, DonorProxy.class);
+	}
+
+	@Override
+	public DonorProxy saveDonor(DonorProxy donorproxy) {
+		donorproxy.setRole("DONOR");
+		Donor donor = repo.save(MapperUtil.convertValue(donorproxy, Donor.class));
+		donorproxy.setId(donor.getId());
+		return donorproxy;
+	}
+
+	@Override
+	public List<BloodBankProxy> getAllBloodBankMasterData() {
+		
+//		ResponseEntity<BloodBankProxy> entity = restTemplate.getForEntity(baseUrl+"/getAllBloodBankMasterData", BloodBankProxy.class);
+//		return (List<BloodBankProxy>) entity.getBody();
+		
+		ResponseEntity<List<BloodBankProxy>> entity = restTemplate.exchange(
+		        baseUrl + "/getAllBloodBankMasterData", 
+		        HttpMethod.GET, 
+		        null, 
+		        new ParameterizedTypeReference<List<BloodBankProxy>>() {}
+		    );
+		
+		return entity.getBody();
+	}
+
+}

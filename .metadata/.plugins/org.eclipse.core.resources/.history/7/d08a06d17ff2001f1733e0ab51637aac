@@ -1,0 +1,116 @@
+package com.security.learn.services.impl;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.security.learn.domain.Role;
+import com.security.learn.domain.Student;
+import com.security.learn.repositories.RoleRepository;
+import com.security.learn.repositories.StudentRepository;
+import com.security.learn.services.StudentService;
+
+@Service
+public class StudentServiceImpl implements StudentService,UserDetailsService, CommandLineRunner{
+
+	private static final String ROLE_TEACHER = "Role_Teacher";
+
+	private static final Object Role_Student = null;
+
+	@Autowired
+	private StudentRepository repository;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
+	@Autowired
+	private RoleRepository repository1;
+
+	@Override
+	public void run(String... args) throws Exception {
+		
+		Role role1 = repository1.findByName(ROLE_TEACHER).orElse(null);
+		Role role2 = repository1.findByName("Role_Student").orElse(null);
+		
+		if(role1==null) {
+			
+			role1 = new Role();
+			role1.setName(ROLE_TEACHER);
+			
+			repository1.save(role1);
+		}
+		
+		if(role2==null) {
+			
+			role2 = new Role();
+			role2.setName("Role_Student");
+			
+			repository1.save(role2);
+		}
+		
+
+	}
+	
+	@Override
+	public List<Student> getAllStudents() {
+		List<Student> list = repository.findAll();
+		return list;
+	}
+
+	@Override
+	public Student getStudentById(Long id) {
+		Student student = repository.findById(id).orElseThrow(()->new RuntimeException("Student not found with give id !!"));
+		return student;
+	}
+
+	@Override
+	public Student saveStudent(Student student) {
+		student.setPassword(passwordEncoder.encode(student.getPassword()));
+		List<Role> roles = new ArrayList<Role>();
+		List<Role> list = student.getRoles();
+		for (Role role : list) {
+			if(role.equals(ROLE_TEACHER)) {
+				roles.add(role);
+			}
+			if(role.equals(Role_Student)) {
+				roles.add(role);
+			}
+		}
+		
+		student.setRoles(roles);
+		Student save = repository.save(student);
+		return save;
+	}
+
+	@Override
+	public Student updateStudent(Long id, Student student) {
+		Student student1 = repository.findById(id).orElseThrow(()->new RuntimeException("Student not found with give id !!"));
+		student1.setName(student.getName());
+		student1.setAddress(student.getAddress());
+		student1.setPassword(student.getPassword());
+		student1.setPassword(passwordEncoder.encode(student.getPassword()));
+		//student1.setRole(student.getRole());
+		
+		return repository.save(student1);
+	}
+
+	@Override
+	public void deleteStudent(Long id) {
+		repository.deleteById(id);
+	}
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		Student student = repository.findByName(username).orElseThrow(()->new RuntimeException("Student not found with give name !!"));
+		return student;
+	}
+
+}

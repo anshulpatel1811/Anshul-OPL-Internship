@@ -1,0 +1,26 @@
+package com.emp.security.services;
+
+import java.util.List;
+
+import com.emp.security.proxy.EmployeeProxy;
+
+public interface EmpService {
+
+	// save employee
+	EmployeeProxy saveData(EmployeeProxy employeeProxy);
+	
+	// get employee by id
+	EmployeeProxy getById(Long id);
+	
+	// get All employee
+	List<EmployeeProxy> getAll();
+	
+	// update employee
+	EmployeeProxy updatedEmployee(Long id,EmployeeProxy employeeProxy);
+	
+	// delete employee
+	void deleteEmpById(Long id);
+	
+	// delete All employee
+	void deleteAllEmp();
+}

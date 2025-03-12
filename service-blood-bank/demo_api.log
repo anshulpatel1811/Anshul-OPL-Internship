@@ -1,0 +1,160 @@
+2025-03-12T09:46:45.717+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] c.b.b.s.ServiceBloodBankApplication      : Starting ServiceBloodBankApplication using Java 21.0.5 with PID 404236 (C:\Users\AnshulPatel\OneDrive - Online PSB Loans\Desktop\spring-boot\service-blood-bank\target\classes started by AnshulPatel in C:\Users\AnshulPatel\OneDrive - Online PSB Loans\Desktop\spring-boot\service-blood-bank)
+2025-03-12T09:46:45.734+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] c.b.b.s.ServiceBloodBankApplication      : No active profile set, falling back to 1 default profile: "default"
+2025-03-12T09:46:45.801+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-12T09:46:45.803+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-12T09:46:46.842+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-12T09:46:47.014+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 162 ms. Found 4 JPA repository interfaces.
+2025-03-12T09:46:47.231+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=c0ea03ac-b4ef-3f06-8cdb-68166bc21e14
+2025-03-12T09:46:47.963+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9091 (http)
+2025-03-12T09:46:47.979+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-12T09:46:47.979+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-03-12T09:46:48.062+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-12T09:46:48.063+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2259 ms
+2025-03-12T09:46:48.417+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-12T09:46:48.491+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-03-12T09:46:48.544+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-03-12T09:46:48.918+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-12T09:46:48.954+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-12T09:46:49.424+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@72984788
+2025-03-12T09:46:49.427+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-12T09:46:49.487+05:30  WARN 404236 --- [service-blood-bank] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-12T09:46:49.488+05:30  WARN 404236 --- [service-blood-bank] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-12T09:46:49.507+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-03-12T09:46:50.557+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-12T09:46:50.700+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-12T09:46:51.151+05:30  WARN 404236 --- [service-blood-bank] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-12T09:46:52.180+05:30  WARN 404236 --- [service-blood-bank] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2025-03-12T09:46:52.212+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-03-12T09:46:52.270+05:30  WARN 404236 --- [service-blood-bank] [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-03-12T09:46:52.281+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 18 endpoints beneath base path '/actuator'
+2025-03-12T09:46:52.391+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2025-03-12T09:46:52.414+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2025-03-12T09:46:52.418+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-03-12T09:46:52.427+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-03-12T09:46:52.428+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-03-12T09:46:52.428+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-03-12T09:46:52.428+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-03-12T09:46:52.428+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-03-12T09:46:52.428+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2025-03-12T09:46:52.428+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-03-12T09:46:52.756+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-03-12T09:46:52.758+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2025-03-12T09:46:52.760+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-03-12T09:46:52.762+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1741753012761 with initial instances count: 2
+2025-03-12T09:46:52.769+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application SERVICE-BLOOD-BANK with eureka with status UP
+2025-03-12T09:46:52.769+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1741753012769, current=UP, previous=STARTING]
+2025-03-12T09:46:52.771+05:30  INFO 404236 --- [service-blood-bank] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SERVICE-BLOOD-BANK/192.168.1.126:service-blood-bank:9091: registering service...
+2025-03-12T09:46:52.808+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9091 (http) with context path '/'
+2025-03-12T09:46:52.809+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 9091
+2025-03-12T09:46:52.823+05:30  INFO 404236 --- [service-blood-bank] [restartedMain] c.b.b.s.ServiceBloodBankApplication      : Started ServiceBloodBankApplication in 7.501 seconds (process running for 8.392)
+2025-03-12T09:46:52.844+05:30  WARN 404236 --- [service-blood-bank] [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Failed to register application as Application(name=service-blood-bank, managementUrl=http://192.168.1.126:9091/actuator, healthUrl=http://192.168.1.126:9091/actuator/health, serviceUrl=http://192.168.1.126:9091/) at spring-boot-admin ([http://localhost:9011/instances]): I/O error on POST request for "http://localhost:9011/instances": Connect to http://localhost:9011 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt. Further attempts are logged on DEBUG level
+2025-03-12T09:46:52.885+05:30  INFO 404236 --- [service-blood-bank] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SERVICE-BLOOD-BANK/192.168.1.126:service-blood-bank:9091 - registration status: 204
+2025-03-12T09:46:53.168+05:30  INFO 404236 --- [service-blood-bank] [RMI TCP Connection(10)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-12T09:46:53.168+05:30  INFO 404236 --- [service-blood-bank] [RMI TCP Connection(10)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-12T09:46:53.170+05:30  INFO 404236 --- [service-blood-bank] [RMI TCP Connection(10)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-03-12T09:49:12.938+05:30  INFO 404236 --- [service-blood-bank] [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Application registered itself as 4b38320b1b9a
+2025-03-12T09:51:52.448+05:30  INFO 404236 --- [service-blood-bank] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-03-12T09:56:52.456+05:30  INFO 404236 --- [service-blood-bank] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-03-12T10:01:52.475+05:30  INFO 404236 --- [service-blood-bank] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-03-12T10:06:52.498+05:30  INFO 404236 --- [service-blood-bank] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-03-12T10:11:52.514+05:30  INFO 404236 --- [service-blood-bank] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-03-12T10:16:52.527+05:30  INFO 404236 --- [service-blood-bank] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-03-12T10:21:52.533+05:30  INFO 404236 --- [service-blood-bank] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-03-12T10:26:52.552+05:30  INFO 404236 --- [service-blood-bank] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-03-12T10:31:42.864+05:30  WARN 404236 --- [service-blood-bank] [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Failed to register application as Application(name=service-blood-bank, managementUrl=http://192.168.1.126:9091/actuator, healthUrl=http://192.168.1.126:9091/actuator/health, serviceUrl=http://192.168.1.126:9091/) at spring-boot-admin ([http://localhost:9011/instances]): I/O error on POST request for "http://localhost:9011/instances": localhost:9011 failed to respond. Further attempts are logged on DEBUG level
+2025-03-12T10:31:52.568+05:30  INFO 404236 --- [service-blood-bank] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-03-12T10:32:20.465+05:30  INFO 404236 --- [service-blood-bank] [RMI TCP Connection(57)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-03-12T10:32:20.500+05:30  INFO 404236 --- [service-blood-bank] [RMI TCP Connection(57)-127.0.0.1] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SERVICE-BLOOD-BANK with eureka with status DOWN
+2025-03-12T10:32:20.502+05:30  INFO 404236 --- [service-blood-bank] [RMI TCP Connection(57)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1741755740502, current=DOWN, previous=UP]
+2025-03-12T10:32:20.502+05:30  INFO 404236 --- [service-blood-bank] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SERVICE-BLOOD-BANK/192.168.1.126:service-blood-bank:9091: registering service...
+2025-03-12T10:32:20.557+05:30  INFO 404236 --- [service-blood-bank] [RMI TCP Connection(57)-127.0.0.1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-03-12T10:32:20.575+05:30  INFO 404236 --- [service-blood-bank] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-03-12T10:32:20.606+05:30  INFO 404236 --- [service-blood-bank] [RMI TCP Connection(57)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-12T10:32:20.619+05:30  INFO 404236 --- [service-blood-bank] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SERVICE-BLOOD-BANK/192.168.1.126:service-blood-bank:9091 - registration status: 204
+2025-03-12T10:32:20.668+05:30  INFO 404236 --- [service-blood-bank] [RMI TCP Connection(57)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-03-12T10:32:20.692+05:30  INFO 404236 --- [service-blood-bank] [RMI TCP Connection(57)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-03-12T10:32:20.696+05:30  INFO 404236 --- [service-blood-bank] [RMI TCP Connection(57)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2025-03-12T10:32:23.706+05:30  INFO 404236 --- [service-blood-bank] [RMI TCP Connection(57)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2025-03-12T10:32:23.798+05:30  INFO 404236 --- [service-blood-bank] [RMI TCP Connection(57)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SERVICE-BLOOD-BANK/192.168.1.126:service-blood-bank:9091 - deregister  status: 200
+2025-03-12T10:32:23.799+05:30  INFO 404236 --- [service-blood-bank] [RMI TCP Connection(57)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2025-03-12T10:36:18.028+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] c.b.b.s.ServiceBloodBankApplication      : Starting ServiceBloodBankApplication using Java 21.0.5 with PID 408596 (C:\Users\AnshulPatel\OneDrive - Online PSB Loans\Desktop\spring-boot\service-blood-bank\target\classes started by AnshulPatel in C:\Users\AnshulPatel\OneDrive - Online PSB Loans\Desktop\spring-boot\service-blood-bank)
+2025-03-12T10:36:18.030+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] c.b.b.s.ServiceBloodBankApplication      : No active profile set, falling back to 1 default profile: "default"
+2025-03-12T10:36:18.074+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-12T10:36:18.075+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-12T10:36:19.147+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-12T10:36:19.325+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 168 ms. Found 4 JPA repository interfaces.
+2025-03-12T10:36:19.549+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=c0ea03ac-b4ef-3f06-8cdb-68166bc21e14
+2025-03-12T10:36:20.414+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9091 (http)
+2025-03-12T10:36:20.427+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-12T10:36:20.428+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-03-12T10:36:20.512+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-12T10:36:20.513+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2438 ms
+2025-03-12T10:36:20.890+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-12T10:36:20.982+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-03-12T10:36:21.041+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-03-12T10:36:21.377+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-12T10:36:21.412+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-12T10:36:21.888+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1f9218b9
+2025-03-12T10:36:21.891+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-12T10:36:21.937+05:30  WARN 408596 --- [service-blood-bank] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-12T10:36:21.939+05:30  WARN 408596 --- [service-blood-bank] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-12T10:36:21.956+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-03-12T10:36:22.986+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-12T10:36:23.104+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-12T10:36:23.542+05:30  WARN 408596 --- [service-blood-bank] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-12T10:36:24.679+05:30  WARN 408596 --- [service-blood-bank] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2025-03-12T10:36:24.714+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-03-12T10:36:24.777+05:30  WARN 408596 --- [service-blood-bank] [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-03-12T10:36:24.787+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 18 endpoints beneath base path '/actuator'
+2025-03-12T10:36:24.911+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2025-03-12T10:36:24.935+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2025-03-12T10:36:24.939+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-03-12T10:36:24.949+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-03-12T10:36:24.950+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-03-12T10:36:24.950+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-03-12T10:36:24.950+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-03-12T10:36:24.950+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-03-12T10:36:24.950+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2025-03-12T10:36:24.950+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-03-12T10:36:25.327+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-03-12T10:36:25.329+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2025-03-12T10:36:25.331+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-03-12T10:36:25.334+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1741755985333 with initial instances count: 2
+2025-03-12T10:36:25.342+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application SERVICE-BLOOD-BANK with eureka with status UP
+2025-03-12T10:36:25.343+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1741755985343, current=UP, previous=STARTING]
+2025-03-12T10:36:25.344+05:30  INFO 408596 --- [service-blood-bank] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SERVICE-BLOOD-BANK/192.168.1.126:service-blood-bank:9091: registering service...
+2025-03-12T10:36:25.372+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9091 (http) with context path '/'
+2025-03-12T10:36:25.373+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 9091
+2025-03-12T10:36:25.389+05:30  INFO 408596 --- [service-blood-bank] [restartedMain] c.b.b.s.ServiceBloodBankApplication      : Started ServiceBloodBankApplication in 7.794 seconds (process running for 8.678)
+2025-03-12T10:36:25.425+05:30  WARN 408596 --- [service-blood-bank] [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Failed to register application as Application(name=service-blood-bank, managementUrl=http://192.168.1.126:9091/actuator, healthUrl=http://192.168.1.126:9091/actuator/health, serviceUrl=http://192.168.1.126:9091/) at spring-boot-admin ([http://localhost:9011/instances]): I/O error on POST request for "http://localhost:9011/instances": Connect to http://localhost:9011 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt. Further attempts are logged on DEBUG level
+2025-03-12T10:36:25.462+05:30  INFO 408596 --- [service-blood-bank] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SERVICE-BLOOD-BANK/192.168.1.126:service-blood-bank:9091 - registration status: 204
+2025-03-12T10:36:25.807+05:30  INFO 408596 --- [service-blood-bank] [RMI TCP Connection(10)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-12T10:36:25.807+05:30  INFO 408596 --- [service-blood-bank] [RMI TCP Connection(10)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-12T10:36:25.809+05:30  INFO 408596 --- [service-blood-bank] [RMI TCP Connection(10)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-03-12T10:36:55.855+05:30  INFO 408596 --- [service-blood-bank] [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Application registered itself as 4b38320b1b9a
+2025-03-12T10:41:05.418+05:30  WARN 408596 --- [service-blood-bank] [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Failed to register application as Application(name=service-blood-bank, managementUrl=http://192.168.1.126:9091/actuator, healthUrl=http://192.168.1.126:9091/actuator/health, serviceUrl=http://192.168.1.126:9091/) at spring-boot-admin ([http://localhost:9011/instances]): I/O error on POST request for "http://localhost:9011/instances": Connect to http://localhost:9011 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt. Further attempts are logged on DEBUG level
+2025-03-12T10:41:08.269+05:30  INFO 408596 --- [service-blood-bank] [RMI TCP Connection(17)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-03-12T10:41:08.282+05:30  INFO 408596 --- [service-blood-bank] [RMI TCP Connection(17)-127.0.0.1] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SERVICE-BLOOD-BANK with eureka with status DOWN
+2025-03-12T10:41:08.283+05:30  INFO 408596 --- [service-blood-bank] [RMI TCP Connection(17)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1741756268283, current=DOWN, previous=UP]
+2025-03-12T10:41:08.283+05:30  INFO 408596 --- [service-blood-bank] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SERVICE-BLOOD-BANK/192.168.1.126:service-blood-bank:9091: registering service...
+2025-03-12T10:41:08.315+05:30  INFO 408596 --- [service-blood-bank] [RMI TCP Connection(17)-127.0.0.1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-03-12T10:41:08.321+05:30  INFO 408596 --- [service-blood-bank] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-03-12T10:41:08.340+05:30  INFO 408596 --- [service-blood-bank] [RMI TCP Connection(17)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-12T10:41:08.359+05:30  INFO 408596 --- [service-blood-bank] [RMI TCP Connection(17)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-03-12T10:41:08.372+05:30  INFO 408596 --- [service-blood-bank] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SERVICE-BLOOD-BANK/192.168.1.126:service-blood-bank:9091 - registration status: 204
+2025-03-12T10:41:08.382+05:30  INFO 408596 --- [service-blood-bank] [RMI TCP Connection(17)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-03-12T10:41:08.384+05:30  INFO 408596 --- [service-blood-bank] [RMI TCP Connection(17)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...

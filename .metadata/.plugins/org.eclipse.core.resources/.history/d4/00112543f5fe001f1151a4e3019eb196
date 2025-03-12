@@ -1,0 +1,18 @@
+package com.blood.bank.service_gateway.services;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import reactor.core.publisher.Mono;
+
+@FeignClient(name = "SERVICE-AUTH")
+public interface AuthServiceClient {
+
+    @GetMapping("/auth/validate-token")
+    Mono<Boolean> validateToken(@RequestParam("token") String token); // Token validation
+
+    @PostMapping("/auth/login")
+    Mono<String> login(@RequestParam("username") String username, @RequestParam("password") String password);
+}

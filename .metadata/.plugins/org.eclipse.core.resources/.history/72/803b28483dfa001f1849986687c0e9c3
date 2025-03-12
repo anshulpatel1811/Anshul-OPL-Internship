@@ -1,0 +1,22 @@
+server:
+  port: 9090
+
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#      - id : donor-service
+#        uri : lb:/SERVICE-DONOR
+#        predicates :
+#        - Path=/Donor/**
+#        filters :
+#        - StripPrefix=0
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: donor-service
+          uri: lb://SERVICE-DONOR
+          predicates:
+            - Path=/Donor/**

@@ -1,0 +1,44 @@
+package com.emp.security.controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.RequestEntity;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.emp.security.proxy.EmployeeProxy;
+import com.emp.security.services.EmpService;
+
+@RestController
+public class EmpController {
+
+	@Autowired
+	private EmpService empService;
+	
+	// save-Data
+	@PostMapping("/saveEmployee")
+	public ResponseEntity<EmployeeProxy> saveData(@RequestBody EmployeeProxy employeeProxy){
+		EmployeeProxy saveData = empService.saveData(employeeProxy);
+		return new ResponseEntity<EmployeeProxy>(saveData, HttpStatus.CREATED);
+	}
+	
+	// get Employee By Id
+	@GetMapping("/getById/{id}")
+	public ResponseEntity<EmployeeProxy> getDataById(@PathVariable Long id){
+		EmployeeProxy employeeProxy = empService.getById(id);
+		return new ResponseEntity<EmployeeProxy>(employeeProxy, HttpStatus.OK);
+	}
+	
+	//get All Employee
+	@GetMapping("/getByEmployee")
+	public ResponseEntity<List<EmployeeProxy>> getAllData(){
+		List<EmployeeProxy> list = empService.getAll();
+		return new ResponseEntity<>(list, HttpStatus.OK);
+	}
+}

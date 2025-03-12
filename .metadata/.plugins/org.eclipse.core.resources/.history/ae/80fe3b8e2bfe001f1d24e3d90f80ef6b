@@ -1,0 +1,12 @@
+spring.application.name=service-auth
+server.port=9099
+#eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka  # Adjust the Eureka server URL
+spring.datasource.url=jdbc:mysql://localhost:3306/db-auth	
+spring.datasource.username=root
+spring.datasource.password=root
+spring.jpa.hibernate.ddl-auto=update
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+#eureka.client.service-url.defaultZone=http://localhost:8761/eureka/
+eureka.client.service-url.defaultZone=http://ADMIN:ADMIN@localhost:8761/eureka

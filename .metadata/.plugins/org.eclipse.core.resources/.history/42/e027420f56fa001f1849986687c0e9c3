@@ -1,0 +1,5 @@
+package com.blood.bank.service_gateway.custom.jwt;
+
+public class JwtGatewayFilter {
+
+}

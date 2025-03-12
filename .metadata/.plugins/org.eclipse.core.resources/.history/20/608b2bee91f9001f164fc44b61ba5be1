@@ -1,0 +1,31 @@
+package com.blood.bank.service_donor.Service;
+
+import java.util.List;
+
+import com.blood.bank.service_donor.Proxy.BloodBankProxy;
+import com.blood.bank.service_donor.Proxy.BloodDonationDetailsProxy;
+import com.blood.bank.service_donor.Proxy.BloodGroupAvailbilityStatusProxy;
+import com.blood.bank.service_donor.Proxy.DonorProxy;
+import com.blood.bank.service_donor.Proxy.PatientBloodUtilizationHistoryProxy;
+
+public interface DonorService {
+   
+	public List<BloodDonationDetailsProxy> getDonationHistoryByUsername(String username);
+	
+	public String donateBlood(BloodGroupAvailbilityStatusProxy availbilityStatusProxy);
+	
+	public List<DonorProxy> getAllDonor();
+	
+	public String deleteDonorByUsername(String username);
+	
+	public DonorProxy getDonorByUsername(String username);
+	
+	public DonorProxy saveDonor(DonorProxy donorproxy);
+	
+	public List<BloodBankProxy> getAllBloodBankMasterData();
+	
+	public BloodGroupAvailbilityStatusProxy serachBloodGroupDetailsOrGetBloodGroupDetails(String bloodGroup);
+
+	public String orderBloodInUnitOrSaveOrderDetails(PatientBloodUtilizationHistoryProxy bloodGroupid);
+
+}

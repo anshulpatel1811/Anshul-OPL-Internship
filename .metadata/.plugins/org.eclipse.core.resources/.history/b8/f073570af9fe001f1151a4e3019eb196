@@ -1,0 +1,106 @@
+package com.blood.bank.service_auth.filter;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
+import org.springframework.web.filter.OncePerRequestFilter;
+
+import com.blood.bank.service_auth.repo.UserRepo;
+import com.blood.bank.service_auth.services.CustomUserDetailsService;
+import com.blood.bank.service_auth.util.JwtUtil;
+
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+public class JwtAuthenticationFilter extends OncePerRequestFilter {
+
+	private final JwtUtil jwtUtil;
+	private final UserRepo userRepo;
+	private final CustomUserDetailsService service;
+
+	@Autowired
+	public JwtAuthenticationFilter(JwtUtil jwtUtil, UserRepo userRepo, CustomUserDetailsService service) {
+		this.jwtUtil = jwtUtil;
+		this.userRepo = userRepo;
+		this.service = service;
+	}
+
+	@Override
+	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+			throws ServletException, IOException {
+
+		// Extract JWT token from the request
+		String token = getTokenFromRequest(request);
+		System.err.println(token);
+
+		if (token != null && !jwtUtil.isTokenExpired(token)) {
+			// Extract username from the JWT token
+			String username = jwtUtil.extractUserName(token);
+			System.err.println(username);
+			if (username != null) {
+				// Load user details using the username
+				UserDetails user = service.loadUserByUsername(username);
+				System.err.println(user);
+
+				// Validate the token (make sure it matches the user)
+				if (jwtUtil.validateToken(token, user)) {
+					System.err.println("token is validated.");
+					// Extract role (authorities) directly from the JWT claims
+					List<GrantedAuthority> authorities = getAuthoritiesFromToken(token);
+					System.err.println(authorities.getFirst());
+					// Create authentication object and set it in the SecurityContext
+					if (SecurityContextHolder.getContext().getAuthentication() == null) {
+						System.err.println("security context holder is null.");
+						UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
+								user, null, authorities);
+						authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+						SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+					}
+				} else {
+					System.err.println("token is invalid.");
+					response.setStatus(HttpServletResponse.SC_UNAUTHORIZED); // Invalid token
+					return;
+				}
+			} else {
+				System.err.println("username is missing.");
+				response.setStatus(HttpServletResponse.SC_UNAUTHORIZED); // Missing username in token
+				return;
+			}
+		}
+
+		// Continue with the filter chain
+		filterChain.doFilter(request, response);
+	}
+
+	// Extract the single role (authority) directly from the JWT token using the
+	// existing extractClaim method
+	private List<GrantedAuthority> getAuthoritiesFromToken(String token) {
+		System.err.println("authority method called.");
+		// Extract the role directly using the existing extractClaim method
+//		String role = jwtUtil.extractClaim(token, claims -> claims.get("role", String.class)); // Assuming "role" is
+//																								// the
+		// claim name in JWT
+		String role = jwtUtil.extractRolesFromToken(token);
+		System.err.println(role);
+		// Create a GrantedAuthority object for the role
+		return role != null ? List.of(() -> role) : List.of(); // If role is present, return it as a granted authority
+
+	}
+
+	// Extract the JWT token from the Authorization header
+	private String getTokenFromRequest(HttpServletRequest request) {
+		String bearerToken = request.getHeader("Authorization");
+		if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
+			return bearerToken.substring(7); // Return the token without "Bearer " prefix
+		}
+		return null;
+	}
+}

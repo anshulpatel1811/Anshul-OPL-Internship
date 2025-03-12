@@ -1,0 +1,73 @@
+package com.emp.security.services.impl;
+
+import java.util.List;
+import java.util.UUID;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.emp.security.domain.Employee;
+import com.emp.security.proxy.EmployeeProxy;
+import com.emp.security.repositories.EmpRepository;
+import com.emp.security.services.EmpService;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+@Service
+public class EmpServiceImpl implements EmpService{
+
+	@Autowired
+	private EmpRepository repository;
+	
+	@Autowired
+	private ObjectMapper mapper;
+	
+	// saveData
+	@Override
+	public EmployeeProxy saveData(EmployeeProxy employeeProxy) {
+		Employee employee = mapper.convertValue(employeeProxy, Employee.class);
+		employee.setEmpId(UUID.randomUUID().toString());
+		Employee savedEmployee = repository.save();
+		return mapper.convertValue(savedEmployee, EmployeeProxy.class);
+	}
+
+	// get Employee By id
+	@Override
+	public EmployeeProxy getById(String id) {
+		
+		Employee employee = repository.findById(id).orElseThrow(()-> new RuntimeException("Employee Not Found With Given ID !!"));
+		return mapper.convertValue(employee, EmployeeProxy.class);
+	}
+
+	// get All Employee
+	@Override
+	public List<EmployeeProxy> getAll() {
+		List<Employee> list = repository.findAll();
+		return list.stream().map(obj->mapper.convertValue(obj, EmployeeProxy.class)).collect(Collectors.toList());
+	}
+
+	// update Employee
+	@Override
+	public EmployeeProxy updatedEmployee(String id, EmployeeProxy employeeProxy) {
+		Employee employee = repository.findById(id).orElseThrow(()-> new RuntimeException("Employee Not Found With Given ID !!"));
+		employee.setEmpName(employeeProxy.getEmpName());
+		employee.setEmpRole(employeeProxy.getEmpRole());
+		employee.setIsActive(employeeProxy.getIsActive());
+		Employee updatedEmployee = repository.save(employee);
+		return mapper.convertValue(updatedEmployee, EmployeeProxy.class);
+	}
+
+	// delete By Employee Id
+	@Override
+	public void deleteEmpById(String id) {
+		Employee employee = repository.findById(id).orElseThrow(()-> new RuntimeException("Employee Not Found With Given ID !!"));
+		repository.delete(employee);
+	}
+
+	// delete All Employee
+	@Override
+	public void deleteAllEmp() {
+		repository.deleteAll();
+	}
+
+}

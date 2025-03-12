@@ -1,0 +1,31 @@
+package com.security.learn;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.security.learn.repositories.StudentRepository;
+
+@SpringBootTest
+class SecurityProject1ApplicationTests {
+
+	@Autowired
+	private StudentRepository repository;
+	
+//	@Autowired
+//	private JwtHelper helper;
+//	
+//	@Test
+//	void contextLoads() {
+//	}
+//
+//	@Test
+//	void testToken() {
+//		
+//		System.out.println("Testing jwt tokens");
+//		
+//		Student student = repository.findById(1l).get();
+//		System.out.println(student);
+//		String token = helper.generateToken(student);
+//		System.out.println(token);
+//	}
+}

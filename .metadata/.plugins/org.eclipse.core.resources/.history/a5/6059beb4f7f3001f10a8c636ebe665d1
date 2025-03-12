@@ -1,0 +1,5 @@
+package com.emp.security.repositories;
+
+public interface EmpRepository {
+
+}

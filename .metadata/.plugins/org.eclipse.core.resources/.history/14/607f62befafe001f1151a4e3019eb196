@@ -1,0 +1,80 @@
+package com.blood.bank.service_donor.Controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.blood.bank.service_donor.Proxy.BloodBankProxy;
+import com.blood.bank.service_donor.Proxy.BloodDonationDetailsProxy;
+import com.blood.bank.service_donor.Proxy.BloodGroupAvailbilityStatusProxy;
+import com.blood.bank.service_donor.Proxy.DonorProxy;
+import com.blood.bank.service_donor.Proxy.PatientBloodUtilizationHistoryProxy;
+import com.blood.bank.service_donor.Service.DonorService;
+
+import jakarta.transaction.Transactional;
+
+@RestController
+@RequestMapping("/Donor")
+public class DonorController {
+
+	@Autowired
+	private DonorService donorService;
+
+	@GetMapping("/get-Donation-History/{donorname}")
+	public ResponseEntity<List<BloodDonationDetailsProxy>> getDonationHistoryByUsername(
+			@PathVariable("donorname") String donorname) {
+		return new ResponseEntity<>(donorService.getDonationHistoryByUsername(donorname), HttpStatus.OK);
+	}
+
+	@PostMapping("/donate-blood")
+	public ResponseEntity<String> donateBlood(@RequestBody BloodGroupAvailbilityStatusProxy availbilityStatusProxy) {
+		return new ResponseEntity<String>(donorService.donateBlood(availbilityStatusProxy), HttpStatus.OK);
+	}
+
+	@Transactional
+	@DeleteMapping("/deleteDonorByName/{donorname}")
+	public ResponseEntity<String> deleteDelete(@PathVariable String donorname) {
+		return new ResponseEntity<String>(donorService.deleteDonorByUsername(donorname), HttpStatus.OK);
+	}
+
+	@GetMapping("/getAllDonor")
+	public ResponseEntity<List<DonorProxy>> getAllDonor() {
+		return new ResponseEntity<List<DonorProxy>>(donorService.getAllDonor(), HttpStatus.OK);
+	}
+
+	@GetMapping("/getDonorByName/{donorname}")
+	public ResponseEntity<DonorProxy> getDonor(@PathVariable("donorname") String donorname) {
+		return new ResponseEntity<DonorProxy>(donorService.getDonorByUsername(donorname), HttpStatus.OK);
+	}
+
+	@PostMapping("/saveDonor")
+	public ResponseEntity<?> saveDonor(@RequestBody DonorProxy donorProxy) {
+		return new ResponseEntity<DonorProxy>(donorService.saveDonor(donorProxy), HttpStatus.CREATED);
+	}
+	
+	@GetMapping("/getAllBloodBankMasterData")
+	public ResponseEntity<List<BloodBankProxy>> getAllBloodBankMasterData(){
+		return new ResponseEntity<>(donorService.getAllBloodBankMasterData(), HttpStatus.OK);
+	}
+	
+	@GetMapping("/serach-BloodGroup-Details/{bloodGroup}")
+	public ResponseEntity<BloodGroupAvailbilityStatusProxy> serachBloodGroupDetails(@PathVariable("bloodGroup") String bloodGroup){
+	//	return new ResponseEntity<>(donorService.serachBloodGroupDetailsOrGetBloodGroupDetails(bloodGroup), HttpStatus.OK);
+		return donorService.serachBloodGroupDetailsOrGetBloodGroupDetails(bloodGroup);
+	}
+	
+	@PostMapping("/saveUserOrderDetails")
+	public ResponseEntity<String> saveOrderDetails(@RequestBody PatientBloodUtilizationHistoryProxy bloodUtilizationHistoryProxy){
+	//	return new ResponseEntity<String>(donorService.orderBloodInUnitOrSaveOrderDetails(bloodUtilizationHistoryProxy), HttpStatus.CREATED);
+		return donorService.orderBloodInUnitOrSaveOrderDetails(bloodUtilizationHistoryProxy);
+	}
+}

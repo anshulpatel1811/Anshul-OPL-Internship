@@ -1,0 +1,42 @@
+server:
+  port: 9090
+
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#      - id : donor-service
+#        uri : lb:/SERVICE-DONOR
+#        predicates :
+#        - Path=/Donor/**
+#        filters :
+#        - StripPrefix=0
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: donor-service
+          uri: lb://SERVICE-DONOR
+          predicates:
+            - Path=/Donor/**
+          filters:
+            - JwtGatewayFilter
+        - id: user-service
+          uri: lb://SERVICE-USER
+          predicates:
+            - Path=/User/**			
+          filters:
+            - JwtGatewayFilter
+        - id: service-blood-bank
+          uri: lb://SERVICE-BLOOD-BANK
+          predicates:
+            - Path=/blood-bank/**
+          filters:
+            - JwtGatewayFilter
+        - id: service-admin
+          uri: lb://SERVICE-ADMIN
+          predicates:
+            - Path=/admin/**
+          filters:
+            - JwtGatewayFilter

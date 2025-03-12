@@ -1,0 +1,56 @@
+package com.blood.bank.service_registry.config;
+
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.SecurityFilterChain;
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfiguration extends WebSecurityConfiguration{
+
+    @Bean
+    SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
+
+        httpSecurity.csrf(c -> c.disable());
+        httpSecurity.authorizeHttpRequests(request -> {
+            request.requestMatchers("/login","/home","/saveEmployee","/image/**","/upload","/image/serve2/**","/register","/view/**").permitAll();
+            request.requestMatchers("/getAllEmployee").hasAnyAuthority("Admin","Manager");
+            //request.requestMatchers("/updateEmployee/**").hasAuthority("Admin");
+            request.anyRequest().authenticated();
+        });
+       
+       // httpSecurity.ba
+        return httpSecurity.build();
+    }
+    
+    protected UserDetailsService userDetailsService() {
+        UserDetails user1 = User.withDefaultPasswordEncoder()
+            .username("user")
+            .password("password")
+            .roles("USER")
+            .build();
+
+        UserDetails admin = User.withDefaultPasswordEncoder()
+            .username("admin")
+            .password("admin")
+            .roles("ADMIN")
+            .build();
+
+        return new InMemoryUserDetailsManager(user1, admin);
+    }
+
+    @Bean
+    PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
+}

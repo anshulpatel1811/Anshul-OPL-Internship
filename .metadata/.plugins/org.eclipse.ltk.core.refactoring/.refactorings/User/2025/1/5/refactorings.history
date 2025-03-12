@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;ApiResponseMessage.java&apos; to &apos;Bank-Management/src/main/java/com.bank_managementy.entity&apos;&#x0D;&#x0A;- Original project: &apos;User&apos;&#x0D;&#x0A;- Destination element: &apos;Bank-Management/src/main/java/com.bank_managementy.entity&apos;&#x0D;&#x0A;- Original element: &apos;com.user.Entity.ApiResponseMessage.java&apos;" description="Copy compilation unit" destination="=Bank-Management/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.bank_managementy.entity" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.user.Entity{ApiResponseMessage.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1738242709311" units="1" version="1.0"/>
+</session>

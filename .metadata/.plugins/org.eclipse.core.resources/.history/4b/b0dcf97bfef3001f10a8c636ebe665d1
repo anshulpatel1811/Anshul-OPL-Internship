@@ -1,0 +1,21 @@
+package com.emp.security.proxy;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class EmployeeProxy {
+	
+	private Long empId;
+	
+	private String empName;
+	
+	private String empPassword;
+	
+	private String empRole;// Devloper, Manager, Admin
+	
+	private Boolean isActive;
+}

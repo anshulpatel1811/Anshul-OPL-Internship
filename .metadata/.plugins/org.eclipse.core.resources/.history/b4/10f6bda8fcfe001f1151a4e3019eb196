@@ -1,0 +1,72 @@
+package com.blood.bank.service_user.Service.Impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.blood.bank.service_user.Domain.User;
+import com.blood.bank.service_user.Proxy.BloodGroupAvailbilityStatusProxy;
+import com.blood.bank.service_user.Proxy.PatientBloodUtilizationHistoryProxy;
+import com.blood.bank.service_user.Proxy.UserProxy;
+import com.blood.bank.service_user.Repo.UserRepo;
+import com.blood.bank.service_user.Service.UserService;
+import com.blood.bank.service_user.Utils.MapperUtil;
+
+import jakarta.transaction.Transactional;
+
+@Service
+public class UserServiceImpl implements UserService{
+
+	
+	@Autowired
+	private UserRepo repo;
+	
+	@Autowired
+	private RestTemplate restTemplate;
+	
+	private final String baseUrl = "http://SERVICE-BLOOD-BANK/blood-bank/";
+
+	@Override
+	public BloodGroupAvailbilityStatusProxy serachBloodGroupDetailsOrGetBloodGroupDetails(String bloodGroup) {
+		return restTemplate.getForObject(baseUrl+"getBGDetails/{b}",BloodGroupAvailbilityStatusProxy.class, bloodGroup);
+	}
+
+	@Override
+	public String orderBloodInUnitOrSaveOrderDetails(PatientBloodUtilizationHistoryProxy bloodGroupid) {
+		return restTemplate.postForObject(baseUrl+"/saveOrderDetails",bloodGroupid,String.class);
+	}
+
+	@Override
+	public UserProxy getUserByUsername(String username) {
+		// TODO Auto-generated method stub
+		
+		User user = repo.findByUsername(username).orElseThrow(()->new RuntimeException("user details not found based on given input"));
+		return MapperUtil.convertValue(user, UserProxy.class);
+	}
+
+	@Override
+	public List<UserProxy> getAllUser() {
+		List<User> findAll = repo.findAll();
+		// TODO Auto-generated method stub
+		return MapperUtil.convertListOfValue(findAll, UserProxy.class);
+	}
+
+	@Override
+	@Transactional
+	public String deleteUserByUsername(String username) {
+		repo.deleteByUsername(username);
+		return "user " + username+" deleted on record";
+	}
+
+	@Override
+	public UserProxy saveUser(UserProxy userproxy) {
+		// TODO Auto-generated method stub
+		userproxy.setRole("User");
+		User user = repo.save(MapperUtil.convertValue(userproxy, User.class));
+		userproxy.setId(user.getId());
+		return userproxy;
+	}
+
+}

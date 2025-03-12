@@ -1,0 +1,21 @@
+package com.blood.bank.service_donor.Service;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.blood.bank.service_donor.Proxy.BloodGroupAvailbilityStatusProxy;
+import com.blood.bank.service_donor.Proxy.PatientBloodUtilizationHistoryProxy;
+
+@FeignClient(name = "service-blood-bank",url = "http://SERVICE-BLOOD-BANK/blood-bank/")
+public interface FeignClients {
+
+	@GetMapping("/getBGDetails/{bgName}")
+	public ResponseEntity<BloodGroupAvailbilityStatusProxy> getBloodGroupDetails(@PathVariable String bgName);
+
+	@PostMapping("/saveOrderDetails")
+	public ResponseEntity<String> saveOrderDetails(@RequestBody PatientBloodUtilizationHistoryProxy bloodUtilizationHistoryProxy);
+}

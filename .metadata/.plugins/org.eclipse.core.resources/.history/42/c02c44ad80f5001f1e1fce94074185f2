@@ -1,0 +1,30 @@
+package com.emp.security.services;
+
+import java.util.List;
+
+import com.emp.security.proxy.EmployeeProxy;
+import com.emp.security.proxy.LoginRequest;
+import com.emp.security.proxy.LoginResponse;
+
+public interface EmpService {
+
+	// save employee
+	EmployeeProxy saveData(EmployeeProxy employeeProxy);
+	
+	// get employee by id
+	EmployeeProxy getById(String id);
+	
+	// get All employee
+	List<EmployeeProxy> getAll();
+	
+	// update employee
+	EmployeeProxy updatedEmployee(String id,EmployeeProxy employeeProxy);
+	
+	// delete employee
+	void deleteEmpById(String id);
+	
+	// delete All employee
+	void deleteAllEmp();
+	
+	public LoginResponse login(LoginRequest request);
+}
